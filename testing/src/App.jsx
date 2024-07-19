@@ -26,7 +26,7 @@ function App() {
 
   const link = from([
     errorLink,
-    new HttpLink({uri: 'https://api.uno.kg/graphql/'})
+    new HttpLink({uri: 'https://api.tanda.kg/graphql/'})
   ])
 
   const client = new ApolloClient({
