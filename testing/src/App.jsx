@@ -15,7 +15,6 @@ import GetData from './components/specials/GetData2'
 // import GetData from './components/specials/GetData'
 
 function App() {
-  const [newData, setData] = useState([]);
   const errorLink = onError(({ graphqlErrors, networkError}) => {
     if (graphqlErrors) {
       graphqlErrors.map(({ message, location, path }) => {
@@ -33,10 +32,6 @@ function App() {
     cache: new InMemoryCache,
     link: link,
   })
-
-  const globalData = (data) => {
-    setData(data);
-  }
 
   return (
     <ApolloProvider client={client}>

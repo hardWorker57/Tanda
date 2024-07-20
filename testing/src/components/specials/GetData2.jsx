@@ -3,11 +3,11 @@ import { useQuery, gql } from '@apollo/client'
 import { LOAD_DATA } from '../../GraphQL/Queries'
 import Detailed_page from './Detailed_page'
 
-function GetData() {
+function GetData({getData}) {
     const {error, loading, data} = useQuery(LOAD_DATA)
 
     useEffect(() => {
-        console.log(data);
+        getData(data)
     }, [data])
     return <div>
         <Detailed_page data={data} />

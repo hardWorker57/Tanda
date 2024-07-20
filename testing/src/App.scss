@@ -153,6 +153,28 @@ button {
     flex-direction: column;
     gap: .6em;
     max-width: 32%;
+    .store_info {
+      display: flex;
+      flex-direction: column;
+      .store_title {
+        font-size: 1.2em;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: .4em;
+        span {
+          background-color: $dark-grey;
+          padding: .15em .2em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 100%;
+        }
+      }
+      span {
+        color: $darkest-grey;
+      }
+    }
   }
   .item_data {
     display: flex;
@@ -448,7 +470,7 @@ button {
     }
   }
 }
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 435px) {
   .footer {
     .container {
       flex-wrap: wrap;

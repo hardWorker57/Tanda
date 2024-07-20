@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { FaStar } from "react-icons/fa";
 import { SlNote } from "react-icons/sl";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,8 +7,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import gsap from "gsap";
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger);
 
 const Rates = () => {
@@ -37,25 +37,31 @@ const Rates = () => {
     }
   ];
   const title = useRef(null);
-  gsap.fromTo(title.current, {skewX: -10, x: -100, opacity: 0}, {skewX: 0, x: 0, opacity: 1, duration: .6, delay: .4, ease: true ,scrollTrigger: {trigger: title.current}});
+  const dash = useRef(null);
+  const block = useRef(null);
 
-
+  useEffect(() => {
+    gsap.fromTo(title.current, {skewX: -10, x: -100, opacity: 0}, {skewX: 0, x: 0, opacity: 1, duration: .6, delay: .4, ease: true ,scrollTrigger: {trigger: title.current}});
+    gsap.fromTo(dash.current, { x: 100, opacity: 0}, { x: 0, opacity: 1, duration: .8, delay: .6, ease: true ,scrollTrigger: {trigger: title.current}});
+    gsap.fromTo(block.current, { x: 40, opacity: 0}, { x: 0, opacity: 1, duration: .7, delay: .5, ease: true ,scrollTrigger: {trigger: title.current}});
+  }, [])
+  
   return (
-    <div className="Rates" ref={title}>
-      <div className="block_title rates">Отзывы</div>
-      <div className="rates_info">
+    <div className="Rates" >
+      <div className="block_title rates" ref={title}>Отзывы</div>
+      <div className="rates_info" ref={block}>
         <div className="title">4.9
-          <div className="stars">{stars.map((star, i) => (
+          <div className="stars" >{stars.map((star, i) => (
             < FaStar />
           ))}</div>
           <div className="rates_num">60 отзывов</div>
         </div>
         <div className="make_rate btn"><SlNote />Написать отзыв</div>
       </div>
-      <div className="rates_block">
+      <div className="rates_block" ref={dash}>
         <Swiper
           breakpoints={{
-            390: {
+            490: {
               slidesPerView: 2,
             },
             768: {

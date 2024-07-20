@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { IoPersonOutline } from "react-icons/io5";
 import Popup from "./Popup";
 import { gsap } from 'gsap';
 
@@ -26,11 +27,12 @@ const Detailed_page = ({ data }) => {
     <div>
       <div className="Detailed_page">
         <div ref={title} className="item_img item">
-          <img className="img" src={data ? data.barcode.images[0].url : '/lg.png'} alt="img" />
+          {/* <img className="img" src={data ? data.barcode.images[0].url : '/lg.png'} alt="img" /> */}
+          <img className="img" src={'/lg.png'} alt="img" />
         </div>
         <div ref={dash} className="item_data item">
           <div className="title">{data ? data.barcode.title : "title"}</div>
-          <div className="store_info">Название магазина <span>brand</span></div>
+          <div className="store_info"><div className="store_title"><span><IoPersonOutline /></span>{data ? data.barcode.category.name : ''}</div><span>Бренд</span></div>
           <div className="rates"> <div className="star"><FaStar /></div> 4.9 <span className="btn">60 отзывов</span></div>
           <div className="desc_title">Описание</div>
           <div className="desc_content">{data ? data.barcode.description : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, ut! Nulla, esse dignissimos eligendi rerum perspiciatis officiis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit fugiat accusantium, reiciendis aut quisquam cum eos rem minima modi harum totam vel, ducimus quam quod sequi ad repellat, est esse. Officia, quas architecto?"}</div>
