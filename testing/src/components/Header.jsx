@@ -9,9 +9,13 @@ import BurgerMenu from "./specials/BurgerMenu";
 
 const Header = () => {
   const [showBurger, setShowBurger] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
   const closeBurger = (value) => {
     setShowBurger(value)
   }
+  //animations
   const title = useRef(null);
   const dash = useRef(null);
   const block = useRef(null);
@@ -21,8 +25,18 @@ const Header = () => {
     
     gsap.fromTo(dash.current, { opacity: 0}, { opacity: 1, duration: 1.3, delay: .6, ease: true });
 
-    gsap.fromTo(block.current, {skewY: 10 ,y: 60, opacity: 0}, {skewY: 0 ,y: 0, opacity: 1, duration: .6, delay: .4, ease: true});
+    gsap.fromTo(block.current, { skewY: 10, y: 60, opacity: 0 }, { skewY: 0, y: 0, opacity: 1, duration: .6, delay: .4, ease: true });
     
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, [])
 
   return (
@@ -32,8 +46,9 @@ const Header = () => {
         <div className="search" ref={dash}>
           <CiSearch /><input placeholder="Искать на UNO" type="search" name="" id="" />
         </div>
+        {showSearch && isMobile && <div className="search mini" ref={dash}><CiSearch /><input placeholder="Искать на UNO" type="search" name="" id="" /></div>}
         <div className="profile" ref={block}>
-          <div className="item btn hide"><CiSearch /></div>
+          <div className="item btn hide" onClick={() => {setShowSearch(!showSearch)}}><CiSearch /></div>
           <div className="login item btn" ><IoPersonOutline /><span>Войти</span></div>
           <div className="cart item btn"><IoCartOutline /><span>Корзина</span></div>
           <div className="burger item btn hide" onClick={() => {setShowBurger(true)}}><RxHamburgerMenu /></div>
