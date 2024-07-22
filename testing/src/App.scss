@@ -164,7 +164,7 @@ button {
         gap: .4em;
         span {
           background-color: $dark-grey;
-          padding: .15em .2em;
+          padding: .15em .13em;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -237,7 +237,7 @@ button {
       display: flex;
       flex-direction: column;
       gap: 1.4em;
-      // min-height: 16em;
+      min-height: 10em;
       justify-content: space-between;
       padding: 1.2em;
       border-radius: 1em;
@@ -456,6 +456,13 @@ button {
       display: none;
     }
   }
+  .Rates {
+    .rates_block {
+      .rate {
+        min-height: 16em;
+      }
+    }
+  }
   .Detailed_page {
     flex-wrap: wrap;
     gap: 1.3rem;
@@ -474,6 +481,13 @@ button {
   .footer {
     .container {
       flex-wrap: wrap;
+    }
+  }
+  .Rates {
+    .rates_block {
+      .rate {
+        min-height: max-content;
+      }
     }
   }
 }

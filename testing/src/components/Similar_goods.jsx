@@ -19,10 +19,10 @@ const Similar_goods = ({newData}) => {
     <div className="Similar_goods">
       <div className='block_title' ref={title}>Похожие товары</div><br />
       <div className="cards" ref={dash}>
-        {data.map((i, newData ) => (
+        {data.map((card, i) => (
           <div className="card" key={i}>
             <img src='md.png' alt="img" className='img'/>
-            <div className='title'>{newData && newData.barcode ? newData.barcode.title : 'title'}{ console.log(newData && newData.barcode ? newData.barcode.title : 'title') }</div>
+            <div className='title'>{newData && newData.barcode ? newData.barcode.title : 'title'}</div>
             <span>Швейная машина</span>
             <div className="rates">{stars.map((star, i) => (
               <div className="star" key={i}><FaStar/></div>
