@@ -496,12 +496,23 @@ button {
   }
 }
 @media screen and (max-width: 435px) {
+  .header {
+    .profile {
+      column-gap: 1em;
+      font-size: .4em;
+    }
+  }
   .footer {
     .container {
       flex-wrap: wrap;
     }
   }
   .Rates {
+    .rates_info {
+      .title {
+        flex-wrap: wrap;
+      }
+    }
     .rates_block {
       .rate {
         min-height: max-content;

@@ -23,7 +23,7 @@ const Similar_goods = ({newData}) => {
           <div className="card" key={i}>
             <img src='md.png' alt="img" className='img'/>
             <div className='title'>{newData && newData.barcode ? newData.barcode.title : 'title'}</div>
-            <span>Швейная машина</span>
+            <span>{newData && newData.barcode ? newData.barcode.category.name : 'type'}</span>
             <div className="rates">{stars.map((star, i) => (
               <div className="star" key={i}><FaStar/></div>
             ))} 0 отзывов</div>

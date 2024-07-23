@@ -66,7 +66,7 @@ const Rates = () => {
           <div className="stars" >{stars.map((star, i) => (
             < FaStar />
           ))}</div>
-          <div className="rates_num">60 отзывов</div>
+          <div className="rates_num">{rates.length} отзывов</div>
         </div>
         <div className="make_rate btn" onClick={handleAddReview}><SlNote />Написать отзыв</div>
       </div>
