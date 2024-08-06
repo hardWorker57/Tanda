@@ -4,7 +4,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 const Menu = () => {
   return (
     <div className="menu">
-      <RxHamburgerMenu />
+      <div className="menu_icon"><RxHamburgerMenu /></div>
       <ul>
         <li><a href="" className="menu_list">Все категории</a></li>
         <li><a href="" className="menu_list">Стать продавцом</a></li>

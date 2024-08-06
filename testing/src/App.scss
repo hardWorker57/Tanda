@@ -149,6 +149,9 @@ button {
       }
     }
   }
+  .burger {
+    
+  }
 }
 .Detailed_page {
   display: flex;
@@ -496,6 +499,23 @@ button {
     .menu {
       display: none;
     }
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0;
+    li {
+      list-style: none;
+      transition: all .3s ease;
+      font-size: 1.4em;
+      &:hover {
+        color: $prime-color;
+      }
+    }
+  }
+  .menu_icon {
+    display: none;
   }
 }
 @media screen and (max-width: 435px) {

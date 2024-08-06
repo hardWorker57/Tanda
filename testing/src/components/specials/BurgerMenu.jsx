@@ -5,7 +5,7 @@ import Menu from "../micro_components/Menu";
 const BurgerMenu = ({ closeBurger }) => {
   return (
     <div className="Popup">
-      <div className="block">
+      <div className="block burger">
         <div className="container">
           <div className="title"> </div>
           <div
